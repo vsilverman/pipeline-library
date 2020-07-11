@@ -206,6 +206,8 @@ def call(Map params = [:]) {
                                         referenceJobName: referenceJobName
                                 if (failFast && currentBuild.result == 'UNSTABLE') {
                                     error 'Static analysis quality gates not passed; halting early'
+                                } else {
+                                  echo currentBuild.result.toString()
                                 }
                             }
                             else {
